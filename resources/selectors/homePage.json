@@ -4,7 +4,7 @@
             "common": "//label[text()='Use Print Utility']"
         },
         "lnk_dispense": {
-            "common": "role=link[name='Dispense']"
+            "common": "//a[normalize-space()='Dispense']"
         },
         "tab_byNHI": {
             "common": "role=tab[name='By NHI']"
