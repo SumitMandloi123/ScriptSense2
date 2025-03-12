@@ -14,7 +14,7 @@ export class HomePage extends BasePage {
         await this.navigateTo("https://dev.scriptsense.co.nz/settings/printers");
         await this.page.waitForTimeout(2000);
         await this.page.locator(homePageSelector.homePage.chk_usePrintUtility.common).click();
-        await this.page.waitForTimeout(2000);
+        await this.page.waitForTimeout(5000);
     }
 
     async searchPatientByNHI(patientName: string) {
