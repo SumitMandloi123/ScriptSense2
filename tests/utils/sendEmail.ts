@@ -41,7 +41,6 @@ const mailOptions = {
   html: `
     <p>Hello,</p>
     <p>The latest <strong>Playwright Test Report</strong> is attached.</p>
-    <p><b>Tests have ${process.env.TEST_RESULT === 'failed' ? 'failed ❌' : 'passed ✅'}.</b></p>
     <p>Best,<br>GitHub Actions</p>
   `,
   attachments: [
