@@ -5,7 +5,7 @@ import testData from "../../resources/data/data.json"
 
 dotenv.config();
 
-test.describe.serial("Login and create a manual dispense", () => {
+test.describe("Login and create a manual dispense", () => {
   test('Navigate to baseurl and login into system', async ({ signinPage }) => {
     test.setTimeout(180000);
     await signinPage.navigateTo(testData.baseUrl)

@@ -21,7 +21,7 @@ const recipientList = receivers.split(',').map(email => email.trim());
 // Path to the Playwright HTML report
 const reportPath = path.resolve('playwright-report', 'index.html');
 
-// Check if report exists
+// Check if the report exists before sending the email
 if (!fs.existsSync(reportPath)) {
   console.error("❌ Playwright HTML report not found at:", reportPath);
   process.exit(1);
@@ -37,10 +37,11 @@ const transporter = nodemailer.createTransport({
 const mailOptions = {
   from: `GitHub Actions <${user}>`,
   to: recipientList, // Now supports multiple emails
-  subject: '📊 Playwright HTML Test Report',
+  subject: '📊 Playwright Test Report (Pass/Fail)',
   html: `
     <p>Hello,</p>
-    <p>The latest <strong>Playwright HTML Report</strong> is attached below.</p>
+    <p>The latest <strong>Playwright Test Report</strong> is attached.</p>
+    <p><b>Tests have ${process.env.TEST_RESULT === 'failed' ? 'failed ❌' : 'passed ✅'}.</b></p>
     <p>Best,<br>GitHub Actions</p>
   `,
   attachments: [
