@@ -19,9 +19,9 @@ export class HomePage extends BasePage {
 
     async searchPatientByNHI(patientName: string) {
         await this.navigateTo("https://dev.scriptsense.co.nz/");
-        await this.page.waitForTimeout(2000);
+        await this.page.waitForSelector(homePageSelector.homePage.lnk_dispense.common, { state: 'visible', timeout: 10000 });
         
-        await this.page.getByRole('link', { name: 'Dispense' }).click();
+        await this.page.locator(homePageSelector.homePage.lnk_dispense.common).click();
         await this.page.locator(homePageSelector.homePage.tab_byNHI.common).click();
         await this.page.locator(homePageSelector.homePage.cbx_searchPatient.common).fill(patientName);
         await this.page.locator(homePageSelector.homePage.btn_searchPatient.common).click();

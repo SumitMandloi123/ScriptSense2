@@ -12,6 +12,7 @@
         "cbx_searchPatient": {
             "common": "role=combobox[name='Search for patient']"
         },
+        
         "btn_searchPatient": {
             "common": "role=button[name='Search']"
         },
