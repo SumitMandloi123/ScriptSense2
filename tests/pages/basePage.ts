@@ -4,13 +4,15 @@ export default class BasePage {
     readonly page: Page;
 
     constructor(page: Page) {
+        if (!page) throw new Error("Page object is not defined.");
         this.page = page;
     }
 
     // Common method to navigate to a URL
     async navigateTo(url: string) {
+        if (!url) throw new Error("URL is not defined.");
         console.log(url)
-        await this.page.goto(url);
+        await this.page.goto(url, { waitUntil: "domcontentloaded" });
     }
 
     // Common method to click an element

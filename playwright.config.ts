@@ -32,7 +32,7 @@ export default defineConfig({
     trace: "on-first-retry",
   
     
-      headless: false, // Set to true for headless execution
+      headless: true, // Set to true for headless execution
       browserName: "chromium",
     },
 
