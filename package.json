@@ -5,12 +5,15 @@
   "license": "MIT",
   "devDependencies": {
     "@playwright/test": "^1.51.0",
-    "@types/node": "^22.13.8"
+    "@types/node": "^22.13.8",
+    "@types/nodemailer": "^6.4.17"
   },
   "scripts": {
     "test": "npx playwright test  ./tests/features/createManualDispence.spec.ts --project=chromium --headed"
   },
   "dependencies": {
-    "jsonwebtoken": "^9.0.2"
+    "dotenv": "^16.4.7",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.10.0"
   }
 }

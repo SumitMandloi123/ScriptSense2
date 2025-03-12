@@ -1,6 +1,7 @@
 import { Locator, Page } from "@playwright/test";
 import BasePage from "./basePage";
 import loginPageSelector from "../../resources/selectors/loginPage.json";
+
 export class SignInPage extends BasePage {
     readonly page: Page;
     private readonly emailIdTextBox: Locator;

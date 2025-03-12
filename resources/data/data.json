@@ -1,0 +1,13 @@
+{
+    "baseUrl": "https://dev.scriptsense.co.nz/",
+    "patient": {
+      "nhiId": "ZAU8023"
+    },
+    "prescriber": {
+      "name": "Dummy"
+    },
+    "medicine": {
+      "name": "Saradon"
+    }
+  }
+  

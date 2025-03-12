@@ -1,0 +1,52 @@
+{
+    "homePage": {
+        "chk_usePrintUtility": {
+            "common": "//label[text()='Use Print Utility']"
+        },
+        "lnk_dispense": {
+            "common": "role=link[name='Dispense']"
+        },
+        "tab_byNHI": {
+            "common": "role=tab[name='By NHI']"
+        },
+        "cbx_searchPatient": {
+            "common": "role=combobox[name='Search for patient']"
+        },
+        "btn_searchPatient": {
+            "common": "role=button[name='Search']"
+        },
+        "opt_patientResult": {
+            "common": "//*[contains(text(), '(ZAU8023) John Lee 01/01/2001 (unknown)')]"
+        },
+        "lnk_manualDispense": {
+            "common": "role=link[name='Manual Dispense']"
+        },
+        "cbx_searchPrescriber": {
+            "common": "role=combobox[name='Search for prescriber']"
+        },
+        "opt_dummyDoctor": {
+            "common": "text='Dummy Doctor'"
+        },
+        "cbx_searchMedicine": {
+            "common": "//div[contains(@class,'mantine-Grid-col mantine-cpt84w')]//input"
+        },
+        "opt_saradon": {
+            "common": "role=option >> text='Saradon'"
+        },
+        "txt_rxQtyOP": {
+            "common": "role=textbox[name='Rx Qty OP']"
+        },
+        "txt_instructions": {
+            "common": "role=textbox[name='Instructions']"
+        },
+        "btn_day13": {
+            "common": "role=button[name='13']"
+        },
+        "txt_totalRepeats": {
+            "common": "role=textbox[name='Total Repeats']"
+        },
+        "btn_endDispense": {
+            "common": "role=button[name='End Dispense']"
+        }
+    }
+}
