@@ -35,6 +35,8 @@ export default defineConfig({
     
       headless: true, // Set to true for headless execution
       browserName: "chromium",
+      video:'on',
+      screenshot:'on',
     },
 
   /* Configure projects for major browsers */
