@@ -19,6 +19,15 @@ export class HomePage extends BasePage {
 
     async searchPatientByNHI(patientName: string) {
         await this.navigateTo("https://dev.scriptsense.co.nz/");
+
+        console.log("🔍 Checking if 'Dispense' link exists...");
+        const dispenseExists = await this.page.locator(homePageSelector.homePage.lnk_dispense.common).isVisible();
+        console.log("✅ Dispense link found:", dispenseExists);
+    
+        if (!dispenseExists) {
+            throw new Error("🚨 Dispense link not found! Check the selector.");
+        }
+        
         await this.page.locator(homePageSelector.homePage.lnk_dispense.common).click();
         await this.page.locator(homePageSelector.homePage.tab_byNHI.common).click();
         await this.page.locator(homePageSelector.homePage.cbx_searchPatient.common).fill(patientName);

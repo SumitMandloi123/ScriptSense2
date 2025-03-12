@@ -4,7 +4,7 @@
             "common": "//label[text()='Use Print Utility']"
         },
         "lnk_dispense": {
-            "common":"//a[contains(@class, 'mantine-Text-root') and @href='/prescription/inbox']"
+            "common":"//a[contains(@class, 'mantine-Text-root') and contains(text(), 'Dispense')]"
         },
         "tab_byNHI": {
             "common": "role=tab[name='By NHI']"

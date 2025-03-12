@@ -22,7 +22,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: "html",
+  reporter: [['html', { outputFolder: 'playwright-report' }]],
   timeout: 60000, 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -30,14 +30,16 @@ export default defineConfig({
     // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: "on-first-retry",
+    trace: "on",
   
     
-      headless: true, // Set to true for headless execution
+      headless: false, // Set to true for headless execution
       browserName: "chromium",
       video:'on',
       screenshot:'on',
     },
+
+    
 
   /* Configure projects for major browsers */
   projects: [
