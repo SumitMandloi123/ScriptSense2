@@ -51,7 +51,7 @@ jobs:
       # ✅ Send Email with HTML Report (Runs Regardless of Pass/Fail)
       - name: Send Email with HTML Report
         if: ${{ always() }}  # Ensures email is sent even if tests fail
-        run: npx ts-node ./resources/utils/sendEmail.ts
+        run: npx ts-node ./tests/utils/sendEmail.ts
         env:
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
