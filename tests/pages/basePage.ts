@@ -9,9 +9,8 @@ export default class BasePage {
 
     // Common method to navigate to a URL
     async navigateTo(url: string) {
-        console.log(url)
         await this.page.goto(url);
-        await this.page.waitForTimeout(5000);
+        await this.page.waitForTimeout(3000);
     }
 
     // Common method to click an element
