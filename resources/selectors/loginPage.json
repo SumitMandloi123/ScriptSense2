@@ -1,0 +1,16 @@
+{
+    "login": {
+        "btn_signInPopUp": {
+            "common": "//button[@class='mantine-UnstyledButton-root mantine-auidlw']//*[name()='svg']"
+        },
+        "tb_emailInput": {
+            "common": "//input[@id='signInName']"
+        },
+        "tb_passInput": {
+            "common": "//input[@id='password']"
+        },
+        "btn_signIn": {
+            "common": "//button[@id='next']"
+        }
+    }
+}
