@@ -8,7 +8,7 @@ dotenv.config();
 test.describe("Login and create a manual dispense", () => {
   test('Navigate to baseurl and login into system', async ({ signinPage }) => {
     test.setTimeout(180000);
-    await signinPage.navigateTo(testData.baseUrl)
+    await signinPage.navigateTo("https://dev.scriptsense.co.nz/")
     await signinPage.loginForm(process.env.LOGIN_USERNAME, process.env.LOGIN_PASSWORD);
   });
   test("Search patient and create a manual dispense", async ({ homePage }) => {

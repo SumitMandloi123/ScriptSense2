@@ -4,8 +4,10 @@ export default class BasePage {
     readonly page: Page;
 
     constructor(page: Page) {
-        this.page = page;
-    }
+        if (!page) {
+            throw new Error("Page object is undefined!");
+        }
+        this.page = page;    }
 
     // Common method to navigate to a URL
     async navigateTo(url: string) {

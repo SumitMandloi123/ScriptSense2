@@ -19,7 +19,6 @@ export class HomePage extends BasePage {
 
     async searchPatientByNHI(patientName: string) {
         await this.navigateTo("https://dev.scriptsense.co.nz/");
-        
         await this.page.locator(homePageSelector.homePage.lnk_dispense.common).click();
         await this.page.locator(homePageSelector.homePage.tab_byNHI.common).click();
         await this.page.locator(homePageSelector.homePage.cbx_searchPatient.common).fill(patientName);
