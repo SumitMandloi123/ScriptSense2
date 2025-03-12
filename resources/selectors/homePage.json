@@ -4,7 +4,7 @@
             "common": "//label[text()='Use Print Utility']"
         },
         "lnk_dispense": {
-            "common":"//a[normalize-space()='Dispense']"
+            "common":"//a[contains(@class, 'mantine-Text-root') and @href='/prescription/inbox']"
         },
         "tab_byNHI": {
             "common": "role=tab[name='By NHI']"
@@ -12,7 +12,7 @@
         "cbx_searchPatient": {
             "common": "role=combobox[name='Search for patient']"
         },
-        
+
         "btn_searchPatient": {
             "common": "role=button[name='Search']"
         },
