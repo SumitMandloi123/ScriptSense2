@@ -24,5 +24,6 @@ test.describe("Login and create a manual dispense", () => {
         await homePage.disablePrinter();
         await homePage.searchPatientByNHI(testData.idNHI);
         await homePage.createManualDispense(testData.doctorName, testData.medicineName);
+        
     });
 });
