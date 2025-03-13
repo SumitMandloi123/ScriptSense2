@@ -37,7 +37,7 @@ export class HomePage extends BasePage {
         await this.clickElement(this.page.locator(this.toggleButtonPrintDisable)); // Click the toggle button to disable the printer
         await this.page.waitForTimeout(1000); // wait for one second after click
         await this.clickElement(this.page.locator(this.dispenseLink));
-        await this.page.waitForTimeout(3000);
+        await this.page.waitForTimeout(3000);   
     }
 
     
