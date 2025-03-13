@@ -88,18 +88,12 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Start Xvfb Manually
-        run: |
-          Xvfb :99 -screen 0 1920x1080x24 &
-          sleep 3
-
-      - name: Run Playwright Tests in Headed Mode
+      # ✅ Run Playwright Tests & Generate HTML Report
+      - name: Run Playwright Tests
+        run: npx playwright test 
         env:
-          DISPLAY: ":99"
           LOGIN_USERNAME: ${{ secrets.LOGIN_USERNAME }} 
           LOGIN_PASSWORD: ${{ secrets.LOGIN_PASSWORD }}
-        run: npx playwright test --headed
-
 
       # ✅ Upload Playwright HTML Report as Artifact
       - name: Upload Playwright HTML Report
@@ -108,4 +102,13 @@ jobs:
         with:
           name: playwright-report
           path: playwright-report/
+          retention-days: 30
+
+      # ✅ Upload Screenshots & Traces (If Needed)
+      - name: Upload Test Results (Screenshots, Traces)
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: test-results/  # Uploads screenshots, traces, etc. separately
           retention-days: 30

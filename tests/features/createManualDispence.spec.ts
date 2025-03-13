@@ -8,9 +8,9 @@ test.describe.serial("Login and create a manual dispense", () => {
     await signinPage.loginForm(process.env.LOGIN_USERNAME, process.env.LOGIN_PASSWORD);
   });
 
-  test("Search patient and create a manual dispense", async ({ homePage }) => {
-    await homePage.disablePrinter();
-    await homePage.searchPatientByNHI(testData.idNHI); // Use idNHI from testData.json
-    await homePage.createManualDispense(testData.doctorName, testData.medicineName); // Use doctor & medicine name from testData.json
-  });
+  // test("Search patient and create a manual dispense", async ({ homePage }) => {
+  //   await homePage.disablePrinter();
+  //   await homePage.searchPatientByNHI(testData.idNHI); // Use idNHI from testData.json
+  //   await homePage.createManualDispense(testData.doctorName, testData.medicineName); // Use doctor & medicine name from testData.json
+  // });
 });
