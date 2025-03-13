@@ -33,7 +33,7 @@ export default defineConfig({
     trace: "on",
   
     
-      headless: true, // Set to true for headless execution
+      headless: false, // Set to true for headless execution
       browserName: "chromium",
       video:'on',
       screenshot:'on',
