@@ -1,42 +1,31 @@
-import { Locator, Page } from "@playwright/test";
+import { Page } from "@playwright/test";
 import BasePage from "./basePage";
-import loginPageSelector from "../../resources/selectors/loginPage.json";
 
 export class SignInPage extends BasePage {
     readonly page: Page;
-    private readonly emailIdTextBox: Locator;
-    private readonly passwordTextBox: Locator;
-    private readonly signInButton: Locator;
+
+    // Defined locators as simple string properties
+    private loginIcon = "//button[@class='mantine-UnstyledButton-root mantine-auidlw']//*[name()='svg']";
+    private usernameInput = "//input[@id='signInName']";
+    private passwordInput = "//input[@id='password']";
+    private signinButton = "//button[@id='next']";
 
     constructor(page: Page) {
         super(page);
         this.page = page;
     }
 
-    async enterEmailId(emailId: string) {
-        await this.setValueInTextField(this.emailIdTextBox, emailId);
-    }
+    // Sign in to the Website
 
-    async enterPassword(password: string) {
-        await this.setValueInTextField(this.passwordTextBox, password);
-    }
-
-    async clickSignInButton() {
-        await this.clickElement(this.signInButton);
-    }
-
-    async loginForm(email, password) {
+    async loginForm(email: string, password: string) {
         const page1Promise = this.page.waitForEvent('popup');
-        await this.page.locator(loginPageSelector.login.btn_signInPopUp.common).click();
+        await this.clickElement(this.page.locator(this.loginIcon)); // Using clickElement from BasePage to click login icon
+
         const page1 = await page1Promise;
-        let emailLocator = page1.locator(loginPageSelector.login.tb_emailInput.common)
-        let passLocator = page1.locator(loginPageSelector.login.tb_passInput.common)
-        let submitButton = page1.locator(loginPageSelector.login.btn_signIn.common)
-        await this.setValueInTextField(emailLocator, email)
-        await this.setValueInTextField(passLocator, password)
-        await this.clickElement(submitButton);
-        await this.page.waitForTimeout(10000); // waits for 2 seconds
+        await this.setValueInTextField(page1.locator(this.usernameInput), email); // Using setValueInTextField from basePage method to fill username.
+        await this.setValueInTextField(page1.locator(this.passwordInput), password);   // Using setValueInTextField method from basePage to fill password
+        await this.clickElement(page1.locator(this.signinButton)); // Using clickElement from BasePage to click sign in button
+        await this.page.waitForSelector("//a[contains(@class, 'mantine-Text-root') and contains(text(), 'Dispense')]", { state: 'visible' }); // Wait for the "Dispense" link to be visible
 
     }
-    
 }
