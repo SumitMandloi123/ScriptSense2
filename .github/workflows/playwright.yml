@@ -90,7 +90,7 @@ jobs:
 
       # ✅ Run Playwright Tests & Generate HTML Report
       - name: Run Playwright Tests
-        run: xvfb-run --auto-servernum -- npx playwright test
+        run: xvfb-run --auto-servernum -- npx playwright test --headed
         env:
           LOGIN_USERNAME: ${{ secrets.LOGIN_USERNAME }} 
           LOGIN_PASSWORD: ${{ secrets.LOGIN_PASSWORD }}
