@@ -52,8 +52,8 @@ export class HomePage extends BasePage {
         await this.setValueInTextField(this.page.locator(this.searchPatient), patientNHIID); // Enter the patient's NHI in the search field
         await this.clickElement(this.page.locator(this.searchButton)); // Click the search button
         await this.page.waitForTimeout(1000) // wait for patient to display
-       console.log( await this.page.locator(this.optionPatientName).isDisabled(), "   is displayed");
-        await this.clickElement(this.page.locator(this.optionPatientName)); // Select the patient from search results
+       console.log( await this.page.locator("//*[contains(text(), 'John Lee')]").isDisabled(), "   is displayed");
+        await this.clickElement(this.page.locator("//*[contains(text(), 'John Lee')]")); // Select the patient from search results
         // await this.page.locator(this.optionPatientName).click({force: true});
         await this.page.waitForSelector(this.loadMoreButton, { state: 'visible' }); // Wait for the "Load More Button" to be visible
 
