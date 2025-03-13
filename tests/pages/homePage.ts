@@ -36,15 +36,17 @@ export class HomePage extends BasePage {
         await this.waitForElementVisible(this.toggleButtonPrintDisable); // Wait until the toggle button is visible
         await this.clickElement(this.page.locator(this.toggleButtonPrintDisable)); // Click the toggle button to disable the printer
         await this.page.waitForTimeout(1000); // wait for one second after click
+        await this.clickElement(this.page.locator(this.dispenseLink));
+        await this.page.waitForTimeout(3000);
     }
 
     
     //  Searches for a patient by NHI number.
      
     async searchPatientByNHI(patientNHIID: string) {
-        await this.navigateTo("https://dev.scriptsense.co.nz/"); // Navigate to the homepage
-        // await this.clickElement(this.page.locator(this.dispenseLink)); // Click the "Dispense" link
-        await this.page.locator(this.dispenseLink).click({ force: true });
+        // await this.navigateTo("https://dev.scriptsense.co.nz/"); // Navigate to the homepage
+        // // await this.clickElement(this.page.locator(this.dispenseLink)); // Click the "Dispense" link
+        // await this.page.locator(this.dispenseLink).click({ force: true });
 
         await this.clickElement(this.page.locator(this.tabNHI)); // Click on the "By NHI" tab
         await this.setValueInTextField(this.page.locator(this.searchPatient), patientNHIID); // Enter the patient's NHI in the search field

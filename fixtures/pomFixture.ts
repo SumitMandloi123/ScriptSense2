@@ -12,7 +12,7 @@ type pages = {
 
 const testPages = baseTest.extend<pages>({
     signinPage: async ({ browser }, use) => {
-        console.log("Launching browser...");
+        // console.log("Launching browser...");
         context = await browser.newContext({ viewport: { width: 1920, height: 1080 } });
         page = await context.newPage(); // Initialize page
         await use(new SignInPage(page));
