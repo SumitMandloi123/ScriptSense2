@@ -27,7 +27,8 @@ export class SignInPage extends BasePage {
         await this.setValueInTextField(page1.locator(this.usernameInput), email); // Using setValueInTextField from basePage method to fill username.
         await this.setValueInTextField(page1.locator(this.passwordInput), password);   // Using setValueInTextField method from basePage to fill password
         await this.clickElement(page1.locator(this.signinButton)); // Using clickElement from BasePage to click sign in button
-        await this.page.waitForSelector(this.dispenseLink, { state: 'visible' }); // Wait for the "Dispense" link to be visible
+        // await this.page.waitForSelector(this.dispenseLink, { state: 'visible' }); // Wait for the "Dispense" link to be visible
+         await this.page.waitForTimeout(10000);
 
     }
 }

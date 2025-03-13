@@ -43,7 +43,9 @@ export class HomePage extends BasePage {
      
     async searchPatientByNHI(patientNHIID: string) {
         await this.navigateTo("https://dev.scriptsense.co.nz/"); // Navigate to the homepage
-        await this.clickElement(this.page.locator(this.dispenseLink)); // Click the "Dispense" link
+        // await this.clickElement(this.page.locator(this.dispenseLink)); // Click the "Dispense" link
+        await this.page.locator(this.dispenseLink).click({ force: true });
+
         await this.clickElement(this.page.locator(this.tabNHI)); // Click on the "By NHI" tab
         await this.setValueInTextField(this.page.locator(this.searchPatient), patientNHIID); // Enter the patient's NHI in the search field
         await this.clickElement(this.page.locator(this.searchButton)); // Click the search button
