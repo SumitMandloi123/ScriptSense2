@@ -6,11 +6,11 @@ export class HomePage extends BasePage {
 
     // Defined locators as simple string properties
     private toggleButtonPrintDisable = "//label[text()='Use Print Utility']";
-    private dispenseLink = "//a[contains(@class, 'mantine-Text-root') and contains(text(), 'Dispense')]";
+    private dispenseLink = "//a[contains(@class, 'mantine-Text-root') and contains(text(), 'Dispense')]//parent :: div";
     private tabNHI = "role=tab[name='By NHI']";
     private searchPatient = "role=combobox[name='Search for patient']";
     private searchButton = "role=button[name='Search']";
-    private optionPatientName = "//*[contains(text(), '(ZAU8023) John Lee 01/01/2001 (unknown)')]";
+    private optionPatientName = "//*[contains(text(), 'John Lee')]";
     private manualDispenseButton = "role=link[name='Manual Dispense']";
     private prescriberSearchField = "role=combobox[name='Search for prescriber']";
     private optionPrescriberName = "text='Dummy Doctor'";
@@ -52,8 +52,8 @@ export class HomePage extends BasePage {
         await this.setValueInTextField(this.page.locator(this.searchPatient), patientNHIID); // Enter the patient's NHI in the search field
         await this.clickElement(this.page.locator(this.searchButton)); // Click the search button
         await this.page.waitForTimeout(1000) // wait for patient to display
-       console.log( await this.page.locator("//*[contains(text(), 'John Lee')]").isDisabled(), "   is displayed");
-        await this.clickElement(this.page.locator("//*[contains(text(), 'John Lee')]")); // Select the patient from search results
+       console.log( await this.page.locator(this.optionPatientName).isDisabled(), "   is displayed");
+        await this.clickElement(this.page.locator(this.optionPatientName)); // Select the patient from search results
         // await this.page.locator(this.optionPatientName).click({force: true});
         await this.page.waitForSelector(this.loadMoreButton, { state: 'visible' }); // Wait for the "Load More Button" to be visible
 

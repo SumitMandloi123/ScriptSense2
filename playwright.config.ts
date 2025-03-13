@@ -37,7 +37,7 @@ export default defineConfig({
       browserName: "chromium",
       video:'on',
       screenshot:'on',
-      storageState:'auth.json'
+      // storageState:'auth.json'
     },
 
     

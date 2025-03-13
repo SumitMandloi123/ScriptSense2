@@ -9,7 +9,7 @@ export class SignInPage extends BasePage {
     private usernameInput = "//input[@id='signInName']";
     private passwordInput = "//input[@id='password']";
     private signinButton = "//button[@id='next']";
-    private dispenseLink = "//a[contains(@class, 'mantine-Text-root') and contains(text(), 'Dispense')]";
+    private dispenseLink = "//a[contains(@class, 'mantine-Text-root') and contains(text(), 'Dispense')]//parent :: div";
 
 
     constructor(page: Page) {
