@@ -1,6 +1,5 @@
-// import { test, expect } from '@playwright/test';
 import { test, expect } from "../../fixtures/pomFixture";
-
+import testData from "../../resources/data/testData.json"; 
 
 test.describe.serial("Login and create a manual dispense", () => {
   test('Navigate to baseurl and login into system', async ({ signinPage }) => {
@@ -11,7 +10,7 @@ test.describe.serial("Login and create a manual dispense", () => {
 
   test("Search patient and create a manual dispense", async ({ homePage }) => {
     await homePage.disablePrinter();
-    await homePage.searchPatientByNHI("ZAU8023");
-    await homePage.createManualDispense("Dummy", "Saradon");
+    await homePage.searchPatientByNHI(testData.idNHI); // Use idNHI from testData.json
+    await homePage.createManualDispense(testData.doctorName, testData.medicineName); // Use doctor & medicine name from testData.json
   });
 });

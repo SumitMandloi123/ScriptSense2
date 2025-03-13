@@ -21,6 +21,7 @@ export class HomePage extends BasePage {
     private button13 = "role=button[name='13']";
     private totalRepeatCount = "role=textbox[name='Total Repeats']";
     private endDispenseButton = "role=button[name='End Dispense']";
+    private loadMoreButton = "//div[contains(@class, 'mantine-Button-inner')]//div[contains(text(), 'Load More')]"
 
     constructor(page: Page) {
         super(page);
@@ -46,8 +47,10 @@ export class HomePage extends BasePage {
         await this.clickElement(this.page.locator(this.tabNHI)); // Click on the "By NHI" tab
         await this.setValueInTextField(this.page.locator(this.searchPatient), patientNHIID); // Enter the patient's NHI in the search field
         await this.clickElement(this.page.locator(this.searchButton)); // Click the search button
+        await this.page.waitForTimeout(1000) // wait for patient to display
         await this.clickElement(this.page.locator(this.optionPatientName)); // Select the patient from search results
-        await this.page.waitForTimeout(5000);
+        await this.page.waitForSelector(this.loadMoreButton, { state: 'visible' }); // Wait for the "Load More Button" to be visible
+
     }
 
     //Creates a manual dispense for a patient.
