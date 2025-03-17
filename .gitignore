@@ -4,6 +4,10 @@ test-results/
 playwright-report/
 blob-report/
 playwright/.cache/
-.env/
-package.json/
+
+# Environment variables
+.env
+
+# Package management (ignoring package.json and package-lock.json, keeping yarn.lock)
+package.json
 package-lock.json
