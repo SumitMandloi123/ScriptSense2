@@ -1,0 +1,67 @@
+name: Playwright Tests
+
+on:
+  push:
+    branches: [ QA ]  # Only runs on QA branch
+  pull_request:
+    branches: [ QA ]  # Only runs on PRs to QA
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+
+    steps:
+      # ✅ Checkout Repository
+      - uses: actions/checkout@v4
+
+      # ✅ Setup Node.js
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      # ✅ Install Dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # ✅ Install Playwright Browsers
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      # ✅ Run Playwright Tests & Generate HTML Report
+      - name: Run Playwright Tests
+        run: npx playwright test 
+        env:
+          LOGIN_USERNAME: ${{ secrets.LOGIN_USERNAME }} 
+          LOGIN_PASSWORD: ${{ secrets.LOGIN_PASSWORD }}
+
+      # ✅ Upload Playwright HTML Report as Artifact
+      - name: Upload Playwright HTML Report
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
+
+      # ✅ Upload Screenshots & Traces (If Needed)
+      - name: Upload Test Results (Screenshots, Traces)
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: test-results/  
+          retention-days: 30
+
+      # ✅ Install Required Node Modules for Email
+      - name: Install nodemailer and dotenv
+        run: npm install nodemailer dotenv typescript ts-node
+
+      # ✅ Send Email with HTML Report (Runs Regardless of Pass/Fail)
+      - name: Send Email with HTML Report
+        if: ${{ always() }}  
+        run: npx ts-node ./tests/utils/sendEmail.ts
+        env:
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+          EMAIL_RECEIVER: ${{ secrets.EMAIL_RECEIVER }}
