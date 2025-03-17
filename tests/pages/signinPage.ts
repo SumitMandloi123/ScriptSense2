@@ -21,6 +21,6 @@ export class SignInPage extends BasePage {
         await this.setValueInTextField(page1.locator(this.passwordInput), password); // Fill in password
         await this.clickElement(page1.locator(this.signinButton)); // Click sign-in button
         await this.getPage().waitForSelector(this.dispenseLink, { state: 'visible' }); // Wait for the "Dispense" link
-        console.log("loggin successful");
+        
     }
 }
