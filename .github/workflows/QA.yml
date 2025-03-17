@@ -82,11 +82,9 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
       - run: npm install -g yarn
       - run: yarn install
-        working-directory: qa
       - run: yarn prettier-check
-        working-directory: qa
       - run: yarn lint-check
-        working-directory: qa
+
       # ✅ Install Dependencies
       - name: Install dependencies
         run: yarn ci
