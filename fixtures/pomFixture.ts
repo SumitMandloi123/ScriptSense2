@@ -2,31 +2,27 @@ import { test as baseTest, BrowserContext, Page } from "@playwright/test";
 import { SignInPage } from "../tests/pages/signinPage";
 import { HomePage } from "../tests/pages/homePage";
 
-let context: BrowserContext;
-let page: Page;
-
-type pages = {
+type Pages = {
     signinPage: SignInPage;
     homePage: HomePage;
 };
 
-const testPages = baseTest.extend<pages>({
-    signinPage: async ({ browser }, use) => {
-        // console.log("Launching browser...");
-        context = await browser.newContext({ viewport: { width: 1920, height: 1080 } });
-        page = await context.newPage(); // Initialize page
-        await use(new SignInPage(page));
+export const test = baseTest.extend<Pages>({
+    signinPage: async ({ page }, use) => {
+        // Initialize SignInPage with Playwright's provided page
+        const signinPage = new SignInPage(page);
+        await use(signinPage);
     },
-    homePage: async ({}, use) => {
-        if (!page) {
-            throw new Error("Page is not initialized. Make sure 'signinPage' runs first.");
-        }
-        await use(new HomePage(page));
+
+    homePage: async ({ page }, use) => {
+        // Initialize HomePage with the same page
+        const homePage = new HomePage(page);
+        await use(homePage);
     },
 });
 
-export const test = testPages;
-export const expect = testPages.expect;
+export const expect = test.expect;
+
 
 
 // import { test as baseTest, BrowserContext, Page } from "@playwright/test";
