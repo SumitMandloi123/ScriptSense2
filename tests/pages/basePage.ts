@@ -1,13 +1,19 @@
 import { Locator, Page } from "@playwright/test";
 
 export default class BasePage {
-    readonly page: Page;
+    protected readonly page: Page;
 
     constructor(page: Page) {
         if (!page) {
             throw new Error("Page object is undefined!");
         }
-        this.page = page;    }
+        this.page = page;    
+    }
+
+    // Getter for the page object, allowing controlled access in child classes
+    protected get(): Page {
+        return this.page;
+    }
 
     // Common method to navigate to a URL
     async navigateTo(url: string) {

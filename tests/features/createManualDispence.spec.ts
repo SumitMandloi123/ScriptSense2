@@ -1,5 +1,5 @@
 import { test, expect} from "../../fixtures/pomFixture";
-import testData from "../../resources/data/testData.json"; 
+import testData from "@data/testData.json";
 
 test.describe("Login and create a manual dispense", () => {
   test('Navigate to baseurl and login into system', async ({ signinPage }) => {

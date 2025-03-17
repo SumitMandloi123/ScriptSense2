@@ -1,8 +1,12 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",  
     "types": ["node"],
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "@pages/*": ["tests/pages/*"],
+      "@data/*": ["resources/data/*"]
+    }
   }
-  
 }
