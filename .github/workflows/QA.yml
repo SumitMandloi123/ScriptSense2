@@ -2,9 +2,9 @@ name: QA
 
 on:
   push:
-    branches: [ QA ]  # Only runs on QA branch
+    branches: [ QA ]  # Runs only on QA branch
   pull_request:
-    branches: [ QA ]  # Only runs on PRs to QA
+    branches: [ QA ]  # Runs only on PRs to QA
 
 jobs:
   test:
@@ -19,7 +19,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
-          cache: 'yarn'  # Caches Yarn dependencies for faster installs
+          cache: 'yarn'  # Caches Yarn dependencies
 
       # ✅ Install Dependencies
       - name: Install dependencies
@@ -54,9 +54,9 @@ jobs:
           path: test-results/  
           retention-days: 30
 
-      # ✅ Install Required Node Modules for Email
-      - name: Install nodemailer and dotenv
-        run: yarn add nodemailer dotenv typescript ts-node
+      # ✅ Ensure Required Node Modules are Installed
+      - name: Ensure ts-node and email dependencies are installed
+        run: yarn add ts-node nodemailer dotenv --dev
 
       # ✅ Send Email with HTML Report (Runs Regardless of Pass/Fail)
       - name: Send Email with HTML Report

@@ -4,4 +4,6 @@ test-results/
 playwright-report/
 blob-report/
 playwright/.cache/
-.env
+.env/
+package.json/
+package-lock.json

@@ -1,61 +1,54 @@
 import { Locator, Page } from "@playwright/test";
 
 export default class BasePage {
-    protected readonly page: Page;
+    protected readonly page: Page; // Page object
 
     constructor(page: Page) {
         if (!page) {
             throw new Error("Page object is undefined!");
         }
-        this.page = page;    
+        this.page = page;
     }
 
-    // Getter for the page object, allowing controlled access in child classes
-    protected get(): Page {
+    // Getter method to access the page object in child classes
+    protected getPage(): Page {
         return this.page;
     }
 
-    // Common method to navigate to a URL
     async navigateTo(url: string) {
-        await this.page.goto(url);
-        await this.page.waitForTimeout(3000);   
+        await this.page.goto(url); // Navigate to the given URL
+        await this.page.waitForTimeout(3000); // Wait for page load
     }
 
-    // Common method to click an element
     async clickElement(element: Locator) {
-        await element.click();
+        await element.click(); // Click the specified element
     }
 
-    // Common method to fill out a form field
     async setValueInTextField(element: Locator, value: string) {
-        await element.fill(value);
+        await element.fill(value); // Fill the given value in the text field
     }
 
-    // Common method to retrieve text from an element
     async getElementText(element: Locator): Promise<string> {
-        return element.innerText();
+        return element.innerText(); // Get and return the text content of the element
     }
 
-    // Common method to wait for an element to be visible
     async waitForElementVisible(element: Locator | string) {
         if (typeof element === 'string') {
-            await this.page.waitForSelector(element, { state: 'visible' });
+            await this.page.waitForSelector(element, { state: 'visible' }); // Wait until the selector is visible
         } else {
-            await element.waitFor({ state: 'visible' });
+            await element.waitFor({ state: 'visible' }); // Wait until the element is visible
         }
     }
 
-    // Common method to wait for an element to be hidden
     async waitForElementHidden(element: Locator) {
         if (typeof element === 'string') {
-            await this.page.waitForSelector(element, { state: 'hidden' });
+            await this.page.waitForSelector(element, { state: 'hidden' }); // Wait until the selector is hidden
         } else {
-            await element.waitFor({ state: 'hidden' });
+            await element.waitFor({ state: 'hidden' }); // Wait until the element is hidden
         }
     }
 
-    // Common method to take a screenshot
     async takeScreenshot(fileName: string) {
-        await this.page.screenshot({ path: fileName });
+        await this.page.screenshot({ path: fileName }); // Capture a screenshot and save it
     }
 }

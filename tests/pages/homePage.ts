@@ -2,7 +2,6 @@ import { Page } from "@playwright/test";
 import BasePage from "@pages/basePage";
 
 export class HomePage extends BasePage {
-    // Define locators as class properties
     private toggleButtonPrintDisable = "//label[text()='Use Print Utility']";
     private dispenseLink = "//a[contains(@class, 'mantine-Text-root') and contains(text(), 'Dispense')]//parent::div";
     private tabNHI = "role=tab[name='By NHI']";
@@ -25,43 +24,40 @@ export class HomePage extends BasePage {
         super(page);
     }
 
-    // Disables the printer by navigating to the settings page and clicking the toggle button
     async disablePrinter() {
-        await this.navigateTo("https://dev.scriptsense.co.nz/settings/printers"); // Navigate to the printer settings page
-        await this.waitForElementVisible(this.toggleButtonPrintDisable); // Wait until the toggle button is visible
-        await this.clickElement(this.page.locator(this.toggleButtonPrintDisable)); // Click the toggle button to disable the printer
-        await this.page.waitForTimeout(3000); // Wait for 3 seconds
+        await this.navigateTo("https://dev.scriptsense.co.nz/settings/printers"); // Open printer settings
+        await this.waitForElementVisible(this.toggleButtonPrintDisable); // Ensure toggle button is visible
+        await this.clickElement(this.getPage().locator(this.toggleButtonPrintDisable)); // Click to disable the printer
+        await this.getPage().waitForTimeout(3000); // Wait for changes
     }
 
-    // Searches for a patient by NHI number
     async searchPatientByNHI(patientNHIID: string) {
-        await this.navigateTo("https://dev.scriptsense.co.nz/"); // Navigate to the homepage
-        await this.clickElement(this.page.locator(this.dispenseLink)); // Click the "Dispense" link
-        await this.clickElement(this.page.locator(this.tabNHI)); // Click on the "By NHI" tab
-        await this.setValueInTextField(this.page.locator(this.searchPatient), patientNHIID); // Enter the patient's NHI in the search field
-        await this.clickElement(this.page.locator(this.searchButton)); // Click the search button
-        await this.page.waitForTimeout(1000); // Wait for patient to display
-        await this.clickElement(this.page.locator(this.optionPatientName)); // Select the patient from search results
-        await this.page.waitForSelector(this.loadMoreButton, { state: 'visible' }); // Wait for the "Load More Button" to be visible
+        await this.navigateTo("https://dev.scriptsense.co.nz/"); // Open homepage
+        await this.clickElement(this.getPage().locator(this.dispenseLink)); // Click "Dispense"
+        await this.clickElement(this.getPage().locator(this.tabNHI)); // Open "By NHI" tab
+        await this.setValueInTextField(this.getPage().locator(this.searchPatient), patientNHIID); // Enter NHI ID
+        await this.clickElement(this.getPage().locator(this.searchButton)); // Click search button
+        await this.getPage().waitForTimeout(1000); // Wait for results
+        await this.clickElement(this.getPage().locator(this.optionPatientName)); // Select patient
+        await this.getPage().waitForSelector(this.loadMoreButton, { state: 'visible' }); // Ensure patient details load
     }
 
-    // Creates a manual dispense for a patient
     async createManualDispense(prescriberName: string, medicineName: string) {
-        await this.clickElement(this.page.locator(this.manualDispenseButton)); // Click the "Manual Dispense" button
-        await this.setValueInTextField(this.page.locator(this.prescriberSearchField), prescriberName); // Enter the prescriber's name
-        await this.page.waitForTimeout(1500); // Wait for 1.5 seconds
-        await this.clickElement(this.page.locator(this.optionPrescriberName)); // Select the prescriber from the list
-        await this.clickElement(this.page.locator(this.medicineSearchField)); // Click on the medicine search field
-        await this.setValueInTextField(this.page.locator(this.medicineSearchField), medicineName); // Enter the medicine name
-        await this.page.waitForTimeout(1500); // Wait for 1.5 seconds
-        await this.clickElement(this.page.locator(this.optionMedicineName)); // Select the medicine from the list
-        await this.page.waitForTimeout(3000); // Wait for the medicine to be selected
-        await this.setValueInTextField(this.page.locator(this.rxQuantityField), "2"); // Enter the Rx quantity as "2"
-        await this.clickElement(this.page.locator(this.instructionField)); // Click on the instruction field
-        await this.setValueInTextField(this.page.locator(this.instructionField), "this is test"); // Enter prescription instructions
-        await this.clickElement(this.page.locator(this.button13)); // Click the button labeled "13"
-        await this.setValueInTextField(this.page.locator(this.totalRepeatCount), "1"); // Set the total repeat count to "1"
-        await this.clickElement(this.page.locator(this.endDispenseButton)); // Click the "End Dispense" button to finalize the process
-        await this.page.waitForTimeout(5000); // Wait for 5 seconds
+        await this.clickElement(this.getPage().locator(this.manualDispenseButton)); // Open "Manual Dispense"
+        await this.setValueInTextField(this.getPage().locator(this.prescriberSearchField), prescriberName); // Enter prescriber name
+        await this.getPage().waitForTimeout(1500); // Wait for results
+        await this.clickElement(this.getPage().locator(this.optionPrescriberName)); // Select prescriber
+        await this.clickElement(this.getPage().locator(this.medicineSearchField)); // Focus on medicine field
+        await this.setValueInTextField(this.getPage().locator(this.medicineSearchField), medicineName); // Enter medicine
+        await this.getPage().waitForTimeout(1500); // Wait for medicine list
+        await this.clickElement(this.getPage().locator(this.optionMedicineName)); // Select medicine
+        await this.getPage().waitForTimeout(3000); // Wait for selection
+        await this.setValueInTextField(this.getPage().locator(this.rxQuantityField), "2"); // Set Rx quantity
+        await this.clickElement(this.getPage().locator(this.instructionField)); // Focus on instruction field
+        await this.setValueInTextField(this.getPage().locator(this.instructionField), "this is test"); // Enter instructions
+        await this.clickElement(this.getPage().locator(this.button13)); // Click "13" button
+        await this.setValueInTextField(this.getPage().locator(this.totalRepeatCount), "1"); // Set total repeats
+        await this.clickElement(this.getPage().locator(this.endDispenseButton)); // Finalize dispense
+        await this.getPage().waitForTimeout(5000); // Wait for completion
     }
 }
