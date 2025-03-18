@@ -92,12 +92,12 @@ jobs:
       # ✅ Install Dependencies
       - name: Install dependencies
         run: yarn install
-        working-directory: ScriptSense2
+        working-directory: ./ScriptSense2
 
       # ✅ Install Playwright Browsers
       - name: Install Playwright Browsers
         run: yarn playwright install --with-deps
-        working-directory: ScriptSense2
+        working-directory: ./ScriptSense2
 
       # ✅ Run Playwright Tests & Generate HTML Report
       - name: Run Playwright Tests
@@ -105,7 +105,7 @@ jobs:
         env:
           LOGIN_USERNAME: ${{ secrets.LOGIN_USERNAME }} 
           LOGIN_PASSWORD: ${{ secrets.LOGIN_PASSWORD }}
-        working-directory: ScriptSense2
+        working-directory: ./ScriptSense2
 
       # ✅ Upload Playwright HTML Report as Artifact
       - name: Upload Playwright HTML Report
