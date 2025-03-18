@@ -89,11 +89,6 @@ jobs:
       - name: Debug Root Directory
         run: ls -lah
 
-      # ✅ Debug Inside `ScriptSense2`
-      - name: Debug Inside ScriptSense2
-        run: pwd; ls -lah;
-        working-directory: ScriptSense2
-
       # ✅ Install Dependencies
       - name: Install dependencies
         run: yarn install
