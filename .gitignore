@@ -8,6 +8,4 @@ playwright/.cache/
 # Environment variables
 .env
 
-# Package management (ignoring package.json and package-lock.json, keeping yarn.lock)
-package.json
-package-lock.json
+

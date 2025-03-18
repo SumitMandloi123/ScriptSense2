@@ -59,5 +59,6 @@ export class HomePage extends BasePage {
         await this.setValueInTextField(this.getPage().locator(this.totalRepeatCount), "1"); // Set total repeats
         await this.clickElement(this.getPage().locator(this.endDispenseButton)); // Finalize dispense
         await this.getPage().waitForTimeout(5000); // Wait for completion
+        await console.log("Dispense Successful");
     }
 }
