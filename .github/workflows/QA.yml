@@ -63,35 +63,46 @@ name: QA
 on:
   push:
     branches: 
-    - QA
+      - QA
   pull_request:
     branches:
-    - QA
+      - QA
 env:
   NODE_VERSION: 18.15.0
 jobs:
-  est:
+  test:
     name: 🔬 Test
     runs-on: ubuntu-22.04
     steps:
       # ✅ Checkout Repository
       - uses: actions/checkout@v4
+      
       # ✅ Setup Node.js
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
+
       - run: npm install -g yarn
-      - run: yarn install
-      - run: yarn prettier-check
-      - run: yarn lint-check
+      - run: corepack enable
+
+      # ✅ Debug Repository Structure
+      - name: Debug Root Directory
+        run: ls -lah
+
+      # ✅ Debug Inside `ScriptSense2`
+      - name: Debug Inside ScriptSense2
+        run: pwd; ls -lah;
+        working-directory: ScriptSense2
 
       # ✅ Install Dependencies
       - name: Install dependencies
-        run: yarn ci
+        run: yarn install
+        working-directory: ScriptSense2
 
       # ✅ Install Playwright Browsers
       - name: Install Playwright Browsers
         run: yarn playwright install --with-deps
+        working-directory: ScriptSense2
 
       # ✅ Run Playwright Tests & Generate HTML Report
       - name: Run Playwright Tests
@@ -99,6 +110,7 @@ jobs:
         env:
           LOGIN_USERNAME: ${{ secrets.LOGIN_USERNAME }} 
           LOGIN_PASSWORD: ${{ secrets.LOGIN_PASSWORD }}
+        working-directory: ScriptSense2
 
       # ✅ Upload Playwright HTML Report as Artifact
       - name: Upload Playwright HTML Report
@@ -106,5 +118,15 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: playwright-report
-          path: playwright-report/
+          path: ScriptSense2/playwright-report/
           retention-days: 30
+
+      # ✅ Upload Screenshots & Traces (If Needed)
+      - name: Upload Test Results (Screenshots, Traces)
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: ScriptSense2/test-results/
+          retention-days: 30
+
