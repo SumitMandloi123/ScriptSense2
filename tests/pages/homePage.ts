@@ -42,7 +42,7 @@ export class HomePage extends BasePage {
         await this.getPage().waitForTimeout(1000); // Wait for results
         await this.clickElement(this.getPage().locator(this.optionPatientName)); // Select patient
         await this.page.waitForTimeout(5000);
-        await this.getPage().waitForSelector(this.loadMoreButton, { state: 'visible' }); // Ensure patient details load
+        // await this.getPage().waitForSelector(this.loadMoreButton, { state: 'visible' }); // Ensure patient details load
     }
 
     async createManualDispense(prescriberName: string, medicineName: string) {

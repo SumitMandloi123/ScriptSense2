@@ -35,6 +35,9 @@ export default defineConfig({
     
       headless: true, // Set to true for headless execution
       browserName: "chromium",
+      contextOptions: {
+      storageState: undefined, // Ensures a fresh incognito session
+    },
       video:'on',
       screenshot:'on',
       // storageState:'auth.json'

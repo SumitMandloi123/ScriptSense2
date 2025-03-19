@@ -1,9 +1,0 @@
-{
-  "AZB2C_USERNAME": "test.monkey@neblar.com",
-  "AZB2C_PASSWORD": "uHdCn6qGtu3jaBQ~",
-  "CYPRESS_AZB2C_AUTHORITY": "https://scriptsensestg.b2clogin.com/scriptsensestg.onmicrosoft.com/b2c_1_ropc",
-  "CYPRESS_AZB2C_SCOPE": "https://scriptsensestg.onmicrosoft.com/api_access_app/user_impersonation openid profile offline_access",
-  "CYPRESS_AZB2C_CLIENT_ID": "5c07abd8-2342-4c47-b6f5-56ceac91bc6b",
-  "CYPRESS_AZB2C_AUTHFLOW": "B2C_1_signUpOrSignIn",
-  "CYPRESS_WEB_API_URL": "https://monolith.stg.scriptsense.co.nz"
-}
