@@ -7,12 +7,14 @@ export class HomePage extends BasePage {
     private tabNHI = "role=tab[name='By NHI']";
     private searchPatient = "role=combobox[name='Search for patient']";
     private searchButton = "role=button[name='Search']";
-    private optionPatientName = "//*[contains(text(), 'John Lee')]";
+    // private optionPatientName = "//*[contains(text(), 'John Lee')]";
+    private optionPatientName = "//*[contains(text(), '(ZAU8023) Eddie VAN HALEN')]";
     private manualDispenseButton = "role=link[name='Manual Dispense']";
     private prescriberSearchField = "role=combobox[name='Search for prescriber']";
-    private optionPrescriberName = "text='Dummy Doctor'";
+    // private optionPrescriberName = "text='Dummy Doctor'";
+    private optionPrescriberName = "text='(90ZGZA) Duane Michael Garcia'";
     private medicineSearchField = "//div[contains(@class,'mantine-Grid-col mantine-cpt84w')]//input";
-    private optionMedicineName = "role=option >> text='Saradon'";
+    private optionMedicineName = "//div[@role='option' and contains(., 'Paracetamol') and contains(., 'Pharmacode:92270300')]";
     private rxQuantityField = "role=textbox[name='Rx Qty OP']";
     private instructionField = "role=textbox[name='Instructions']";
     private button13 = "role=button[name='13']";
@@ -39,6 +41,7 @@ export class HomePage extends BasePage {
         await this.clickElement(this.getPage().locator(this.searchButton)); // Click search button
         await this.getPage().waitForTimeout(1000); // Wait for results
         await this.clickElement(this.getPage().locator(this.optionPatientName)); // Select patient
+        await this.page.waitForTimeout(5000);
         await this.getPage().waitForSelector(this.loadMoreButton, { state: 'visible' }); // Ensure patient details load
     }
 
