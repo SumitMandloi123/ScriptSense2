@@ -1,4 +1,6 @@
 import { defineConfig, devices } from "@playwright/test";
+import env from '@data/env';
+
 
 /**
  * Read environment variables from file.
@@ -6,7 +8,7 @@ import { defineConfig, devices } from "@playwright/test";
  */
 import dotenv from 'dotenv';
 import path from 'path';
-dotenv.config({ path: path.resolve(__dirname, '.env') });
+dotenv.config({ path: path.resolve(__dirname, '.env.default') });
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -23,7 +25,7 @@ export default defineConfig({
   workers: 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: "html",
-  timeout: 60000, 
+  // timeout: 60000, 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -35,11 +37,12 @@ export default defineConfig({
     
       headless: true, // Set to true for headless execution
       browserName: "chromium",
-      contextOptions: {
-      storageState: undefined, // Ensures a fresh incognito session
-    },
+    //   contextOptions: {
+    //   storageState: undefined, // Ensures a fresh incognito session
+    // },
       video:'on',
       screenshot:'on',
+      trace:'on',
       // storageState:'auth.json'
     },
 

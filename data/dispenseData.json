@@ -1,0 +1,11 @@
+{
+  "patient": {
+    "NHI_id": "ZAU8023"
+  },
+  "prescriber": {
+    "name": "Duane"
+  },
+  "medicine": {
+    "name": "Saradon"
+  }
+}
