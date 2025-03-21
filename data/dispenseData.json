@@ -3,9 +3,9 @@
     "NHI_id": "ZAU8023"
   },
   "prescriber": {
-    "name": "Duane"
+    "name": "Dummy"
   },
   "medicine": {
-    "name": "Saradon"
+    "name": "Paracetamol"
   }
-}
+} 

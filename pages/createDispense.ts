@@ -10,7 +10,7 @@ export default class CreateDispense extends BasePage {
   }  
 
   private get optionPrescriberName() {  
-    return this.page.locator("text='(90ZGZA) Duane Michael Garcia'"); // Selects a specific prescriber  
+    return this.page.locator("//div[contains(text(),'Dummy Doctor')]"); // Selects a specific prescriber  
   }  
 
   private get medicineSearchField() {  
@@ -18,11 +18,11 @@ export default class CreateDispense extends BasePage {
   }  
 
   private get optionMedicineName() {  
-    return this.page.locator("//div[contains(text(),'Saradon')]"); // Selects a specific medicine from the list  
+    return this.page.locator("(//div[contains(text(),'Paracetamol + Codeine (Relieve) (Mylan)')])[1]"); // Selects a specific medicine from the list  
   }  
 
   private get rxQuantityField() {  
-    return this.page.locator("role=textbox[name='Rx Qty OP']"); // Input field for prescription quantity  
+    return this.page.locator("(//div[contains(text(),'Total Rx Qty')]//following::input)[1]"); // Input field for prescription quantity  
   }  
 
   private get instructionField() {  
@@ -45,11 +45,16 @@ export default class CreateDispense extends BasePage {
     await this.manualDispenseButton.click(); // Clicks on "Manual Dispense" button  
     await this.prescriberSearchField.fill(prescriberName); // Enters the prescriber's name  
     await this.optionPrescriberName.click(); // Selects the prescriber from suggestions  
+    await this.page.waitForTimeout(5000);
     await this.medicineSearchField.click(); // Clicks the medicine search field  
     await this.medicineSearchField.fill(medicineName); // Enters the medicine name  
-    await this.page.waitForTimeout(1500); // Waits for medicine options to load  
+    // await this.page.waitForTimeout(5000); // Waits for medicine options to load  
+    await this.optionMedicineName.waitFor({ state: "visible"});
     await this.optionMedicineName.click(); // Selects the desired medicine  
-    await this.page.waitForTimeout(3000); // Waits for UI to process selection  
+    // await this.page.getByRole('combobox', { name: 'Select Medicine' }).fill('FERTILITY');
+    // await this.page.getByText('FERTILITYSCORE MALE FERT TEST').click();
+    // await this.page.pause();
+    await this.page.waitForTimeout(5000); // Waits for UI to process selection  
     await this.rxQuantityField.fill("2"); // Fills in the Rx quantity  
     await this.instructionField.click(); // Clicks on the instruction field  
     await this.instructionField.fill("this is test"); // Adds instructions for the prescription  

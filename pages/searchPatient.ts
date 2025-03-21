@@ -15,7 +15,7 @@ export default class SearchPatient extends BasePage {
   } // Locator for the search button  
 
   private get optionPatientName() {  
-    return this.page.locator("//*[contains(text(), '(ZAU8023) John Mayer')]");  
+    return this.page.locator("//*[contains(text(), '(ZAU8023) John Lee')]");  
   } // Locator for selecting a patient from search results  
 
   private get loadMoreButton() {  
@@ -28,6 +28,6 @@ export default class SearchPatient extends BasePage {
     await this.searchButton.click(); // Clicks the search button  
     await this.page.waitForTimeout(1000); // Waits briefly for the results to load  
     await this.optionPatientName.click(); // Selects the matching patient from the results  
-    await this.loadMoreButton.waitFor({ state: "visible" }); // Ensures the 'Load More' button appears  
+    await this.loadMoreButton.waitFor({ state: "visible", timeout : 0 }); // Ensures the 'Load More' button appears  
   }  
 }

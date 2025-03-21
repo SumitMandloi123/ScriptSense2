@@ -31,7 +31,7 @@ test.describe('Login and create a manual dispense', () => {
   
   test('Navigate to base URL and login into the system', async ({ header }) => {
 
-    await header.login("test.monkey@neblar.com", "uHdCn6qGtu3jaBQ~");
+    await header.login(env.AZB2C_USERNAME, env.AZB2C_PASSWORD);
     await expect(header.dispenseButton).toBeVisible();
   });
 
