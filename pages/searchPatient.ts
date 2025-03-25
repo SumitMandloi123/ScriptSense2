@@ -15,7 +15,7 @@ export default class SearchPatient extends BasePage {
   } // Locator for the search button  
 
   private get optionPatientName() {  
-    return this.page.locator("//*[contains(text(), '(ZAU8023) John Lee')]");  
+    return this.page.locator("//*[contains(text(), '(ZAU8023) John Doe')]");  
   } // Locator for selecting a patient from search results  
 
   private get loadMoreButton() {  

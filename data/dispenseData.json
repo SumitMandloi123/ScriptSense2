@@ -5,7 +5,31 @@
   "prescriber": {
     "name": "Dummy"
   },
+
+
   "medicine": {
     "name": "Paracetamol"
-  }
+  },
+
+
+"medicines": [
+    {
+      "name": "Omeprazole Actavis (New Pharmacode) (omeprazole 10 mg)",
+      "repeats": "90",
+      "dispQty": "1",
+      "days":"90"
+    },
+    {
+      "name": "Domperidone Viatris (domperidone (as maleate) 10 mg)",
+      "repeats": "90",
+      "dispQty": "3",
+      "days":"90"
+    },
+    {
+      "name": "Propranolol (propranolol hydrochloride 40 mg)",
+      "repeats": "30",
+      "dispQty": "3",
+      "days":"30"
+    }
+  ]
 } 

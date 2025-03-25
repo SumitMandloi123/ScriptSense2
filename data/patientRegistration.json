@@ -1,0 +1,9 @@
+{
+    "patient": {
+      "NHI": "ZAU8023",
+      "firstName": "John",
+      "lastName": "Doe",
+      "gender": "Male",
+      "DOB": "01/01/2001"
+    }
+  }

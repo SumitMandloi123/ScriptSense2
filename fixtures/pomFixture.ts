@@ -21,7 +21,7 @@ const testPages = baseTest.extend<pages>({
   browser: [
     async ({}, use) => {
       console.log('Launching shared browser...');
-      const browser = await chromium.launch({ headless: true }); // Use true for CI
+      const browser = await chromium.launch({ headless: false }); // Use true for CI
       await use(browser);
       console.log('Closing shared browser...');
       await browser.close();
@@ -34,8 +34,10 @@ const testPages = baseTest.extend<pages>({
     async ({ browser }, use) => {
       console.log('Creating shared context...');
       const context = await browser.newContext({
-        viewport: { width: 1440, height: 1020 },
+        viewport: { width: 1366, height: 768 },
       });
+      await context.clearCookies();
+
       await use(context);
       console.log('Closing shared context...');
       await context.close();
@@ -48,7 +50,7 @@ const testPages = baseTest.extend<pages>({
     async ({ sharedContext }, use) => {
       console.log('Creating shared page...');
       const page = await sharedContext.newPage();
-      await page.goto("/"); // Ensure the page starts fresh
+      await page.goto("https://dev.scriptsense.co.nz/"); // Ensure the page starts fresh
       await use(page);
       console.log('Closing shared page...');
       await page.close();
