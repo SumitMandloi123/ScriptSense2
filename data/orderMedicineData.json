@@ -1,0 +1,17 @@
+{
+    "medicineDetails": {
+      "medicineNames": ["paracetamol", "Prop"],
+      "s29Meds":["zaltrap"],
+      "quantity": "3",
+      "patientName":"Samuel",
+      "prescrierName": "Robert",
+      "costomerEmail":"Samuel@yopmail.com",
+      "deliveryInstruction":"handle with care",
+      "referenceName":"Samuel",
+      "daysForAutoCalculate":"100",
+      "checkTheUpdateStockForMed":["omeprazole"],
+      "supplier":"NestleHealth",
+      "warningCheckMedicine":"Thermometer classic"
+
+    }
+  }

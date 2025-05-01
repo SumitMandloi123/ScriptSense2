@@ -5,20 +5,33 @@ import {
   BrowserContext,
   Browser,
 } from '@playwright/test';
-import Header from '@pages/header'
-import HomePage from '@pages/landingPage';
+import { Dispense } from '@pages/dispensePage';
+import Header from '@pages/header';
+import { Landing } from '@pages/landingPage';
+import AddPatient from '@pages/patientRegistration';
+import { Printer } from '@pages/printerPage';
+import Retail from '@pages/retailPage';
+import Account from '@pages/accountPage';
+import Order from '@pages/inventoryOrderPage'
 
 type pages = {
   browser: Browser;
   sharedContext: BrowserContext;
   sharedPage: Page; // Renamed to avoid conflict
   header: Header;
-  homePage: HomePage;
+  dispense: Dispense;
+  printer: Printer;
+  landing: Landing;
+  patientRegistration: AddPatient;
+  retailPage: Retail;
+  accountPage: Account;
+  order : Order;
 };
 
 const testPages = baseTest.extend<pages>({
   // Launch ONE browser for all tests
   browser: [
+    // eslint-disable-next-line no-empty-pattern
     async ({}, use) => {
       console.log('Launching shared browser...');
       const browser = await chromium.launch({ headless: false }); // Use true for CI
@@ -30,14 +43,11 @@ const testPages = baseTest.extend<pages>({
   ],
 
   // Shared browser context
+  // @ts-ignore
   sharedContext: [
     async ({ browser }, use) => {
       console.log('Creating shared context...');
-      const context = await browser.newContext({
-        viewport: { width: 1366, height: 768 },
-      });
-      await context.clearCookies();
-
+      const context = await browser.newContext();
       await use(context);
       console.log('Closing shared context...');
       await context.close();
@@ -46,11 +56,12 @@ const testPages = baseTest.extend<pages>({
   ],
 
   // Shared page for all tests
+  //@ts-ignore
   sharedPage: [
     async ({ sharedContext }, use) => {
       console.log('Creating shared page...');
       const page = await sharedContext.newPage();
-      await page.goto("https://dev.scriptsense.co.nz/"); // Ensure the page starts fresh
+      await page.goto('/'); // Ensure the page starts fresh
       await use(page);
       console.log('Closing shared page...');
       await page.close();
@@ -62,9 +73,26 @@ const testPages = baseTest.extend<pages>({
   header: async ({ sharedPage }, use) => {
     await use(new Header(sharedPage));
   },
-
-  homePage: async ({ sharedPage }, use) => {
-    await use(new HomePage(sharedPage));
+  landing: async ({ sharedPage }, use) => {
+    await use(new Landing(sharedPage));
+  },
+  printer: async ({ sharedPage }, use) => {
+    await use(new Printer(sharedPage));
+  },
+  dispense: async ({ sharedPage }, use) => {
+    await use(new Dispense(sharedPage));
+  },
+  patientRegistration: async ({ sharedPage }, use) => {
+    await use(new AddPatient(sharedPage));
+  },
+  retailPage: async ({ sharedPage }, use) => {
+    await use(new Retail(sharedPage));
+  },
+  accountPage: async ({ sharedPage }, use) => {
+    await use(new Account(sharedPage));
+  },
+  order: async ({ sharedPage }, use) => {
+    await use(new Order(sharedPage));
   },
 });
 

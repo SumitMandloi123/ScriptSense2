@@ -1,19 +1,28 @@
 {
-  "name": "playwright",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
+  "name": "@scriptsense/qa",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "yarn@4.0.2",
   "devDependencies": {
-    "@playwright/test": "^1.51.0",
-    "@types/node": "^22.13.8",
-    "@types/nodemailer": "^6.4.17"
+    "@playwright/test": "1.51.1",
+    "@types/eslint": "^8",
+    "@types/node": "22.13.8",
+    "@typescript-eslint/eslint-plugin": "6.18.0",
+    "@typescript-eslint/parser": "6.18.0",
+    "dotenv": "16.4.7",
+    "eslint": "8.56.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-import-resolver-typescript": "3.6.1",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-prettier": "5.1.2",
+    "eslint-plugin-spellcheck": "0.0.20",
+    "jsonwebtoken": "9.0.2",
+    "prettier": "3.1.1",
+    "typescript": "^5.2.2"
   },
   "scripts": {
-    "test": "playwright test  ./tests/features/createManualDispence.spec.ts --headed"
-  },
-  "dependencies": {
-    "dotenv": "^16.4.7",
-    "jsonwebtoken": "^9.0.2",
-    "nodemailer": "^6.10.0"
+    "lint-check": "eslint data fixtures pages tests",
+    "prettier-check": "prettier --check data fixtures pages tests",
+    "test": "playwright test retail.spec.ts"
   }
 }

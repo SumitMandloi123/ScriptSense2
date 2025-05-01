@@ -1,35 +1,104 @@
 {
   "patient": {
-    "NHI_id": "ZAU8023"
+    "NHI_id": "ZAU8023",
+    "DOB":"01/02/2000"
   },
   "prescriber": {
-    "name": "Dummy"
+    "name": "Dummy Doctor"
   },
-
-
   "medicine": {
-    "name": "Paracetamol"
+    "name": "lynparza"
   },
-
-
-"medicines": [
+  "medicines": [
     {
-      "name": "Omeprazole Actavis (New Pharmacode) (omeprazole 10 mg)",
-      "repeats": "90",
-      "dispQty": "1",
-      "days":"90"
-    },
-    {
-      "name": "Domperidone Viatris (domperidone (as maleate) 10 mg)",
-      "repeats": "90",
-      "dispQty": "3",
-      "days":"90"
+      "name": "Omeprazole",
+      "repeats": "3",
+      "dispQty": "5",
+      "finalMedName": "omeprazole 20 mg"
     },
     {
       "name": "Propranolol (propranolol hydrochloride 40 mg)",
-      "repeats": "30",
-      "dispQty": "3",
-      "days":"30"
+      "repeats": "3",
+      "dispQty": "5",
+      "finalMedName": "propranolol hydrochloride"
+    },
+    {
+      "name": "Domperidone Viatris (domperidone (as maleate) 10 mg)",
+      "repeats": "4",
+      "dispQty": "5",
+      "finalMedName": "domperidone 10 mg"
+
+    }
+  ],
+  "heldDispenseData": {
+    "medicines": [
+      {
+        "dispQty": "5",
+        "medicine": "Lynparza",
+        "prescriber": "Test prescriber",
+        "finalMedName": "olaparib"
+      }
+    ]
+  },
+  "OwingDispenseData": {
+    "medicines": [
+      {
+        "dispQty": "9",
+        "givenQty": "2",
+        "repeat": "2",
+        "medicine": "Omeprazole",
+        "prescriber": "Test prescriber",
+        "finalMedName": "Omeprazole"
+      }
+    ]
+  },
+  "RepeatDispenseData": {
+    "medicines": [
+      {
+        "dispQty": "9",
+        "repeat": "7",
+        "medicine": "Lynparza",
+        "prescriber": "Test prescriber",
+        "finalMedName": "olaparib",
+        "inputValues": [1, 2, 3, 3, 2, 1, 1],
+        "instructions": [
+          "take twice",
+          "take thrice",
+          "take once",
+          "take with water",
+          "take with milk",
+          "take empty stomach",
+          "take after lunch"
+        ]
+      }
+    ]
+  },
+  "deletingRecord":{
+        "medicine":"Vicks Inhaler",
+        "dispQty":"3",
+        "finalMedName":"menthol 197",
+        "prescriber":"Test prescriber",
+        "repeat":"5"
+  },
+
+  "autoDispenseMedicines": [
+    {
+      "name":"THERMOMETER TOUCHLESS",
+      "repeats": "3",
+      "finalMedName": "THERMOMETER TOUCHLESS"
+
+    },
+    {
+      "name": "OXYGEN MASK",
+      "repeats": "3",
+      "finalMedName": "OXYGEN MASK"
+    },
+    {
+      "name": "STETHOSCOPE",
+      "repeats": "3",
+      "finalMedName": "STETHOSCOPE CLASSIC"
     }
   ]
-} 
+  
+}
+

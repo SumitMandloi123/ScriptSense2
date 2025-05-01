@@ -1,0 +1,28 @@
+2025/04/25-10:44:35.052 c41ce Reusing MANIFEST /home/unthinkable-lap/ScriptSense2/fixtures/user-data-dir/Default/IndexedDB/https_stg.scriptsense.co.nz_0.indexeddb.leveldb/MANIFEST-000001
+2025/04/25-10:44:35.053 c41ce Recovering log #61
+2025/04/25-10:44:35.058 c41ce Reusing old log /home/unthinkable-lap/ScriptSense2/fixtures/user-data-dir/Default/IndexedDB/https_stg.scriptsense.co.nz_0.indexeddb.leveldb/000061.log 
+2025/04/25-10:44:39.340 c41cf Level-0 table #66: started
+2025/04/25-10:44:39.374 c41cf Level-0 table #66: 1420507 bytes OK
+2025/04/25-10:44:39.374 c41cf Delete type=0 #61
+2025/04/25-10:44:39.408 c41d5 Compacting 1@1 + 1@2 files
+2025/04/25-10:44:39.475 c41d5 Generated table #67@1: 10862 keys, 1840011 bytes
+2025/04/25-10:44:39.475 c41d5 Compacted 1@1 + 1@2 files => 1840011 bytes
+2025/04/25-10:44:39.476 c41d5 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/04/25-10:44:40.672 c41d1 Level-0 table #69: started
+2025/04/25-10:44:40.707 c41d1 Level-0 table #69: 1417907 bytes OK
+2025/04/25-10:44:40.708 c41d1 Delete type=0 #65
+2025/04/25-10:44:40.708 c41d1 Delete type=2 #63
+2025/04/25-10:44:40.708 c41d1 Delete type=2 #66
+2025/04/25-10:44:40.748 c41cf Compacting 1@1 + 1@2 files
+2025/04/25-10:44:40.818 c41cf Generated table #70@1: 10866 keys, 1840261 bytes
+2025/04/25-10:44:40.819 c41cf Compacted 1@1 + 1@2 files => 1840261 bytes
+2025/04/25-10:44:40.819 c41cf compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/04/25-10:44:41.998 c41d1 Level-0 table #72: started
+2025/04/25-10:44:42.039 c41d1 Level-0 table #72: 1418144 bytes OK
+2025/04/25-10:44:42.040 c41d1 Delete type=0 #68
+2025/04/25-10:44:42.040 c41d1 Delete type=2 #67
+2025/04/25-10:44:42.040 c41d1 Delete type=2 #69
+2025/04/25-10:44:42.064 c41d1 Compacting 1@1 + 1@2 files
+2025/04/25-10:44:42.126 c41d1 Generated table #73@1: 10870 keys, 1840484 bytes
+2025/04/25-10:44:42.126 c41d1 Compacted 1@1 + 1@2 files => 1840484 bytes
+2025/04/25-10:44:42.127 c41d1 compacted to: files[ 0 0 1 0 0 0 0 ]

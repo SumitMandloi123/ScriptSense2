@@ -1,0 +1,36 @@
+{
+  "editDispense": {
+    "medicine": [
+      {
+        "dispQty": "1p",
+        "repeat":"3",
+        "medicine": "Domperidone Viatris (domperidone (as maleate) 10 mg)",
+        "prescriber": "Test prescriber",
+        "finalMedName": "DOMPERIDONE VIATRIS TAB 10MG 100",
+         "instruction": "before sleep"
+      }
+    ]
+  },
+  "editDispenseOwing": {
+    "medicine": [
+      {
+      "instruction": "Adding test instructions to this dispense"
+      }
+    ]
+  },
+  "editMultipleMedicine": [
+    {
+      "repeats": "5",
+      "dispQty": "10",
+      "finalMedName": "propranolol hydrochloride",
+      "selectInstruction": "7"
+    },
+    {
+      "repeats": "5",
+      "dispQty": "10",
+      "finalMedName": "domperidone 10 mg",
+      "selectInstruction": "3"
+    }
+  ]
+
+}

@@ -21,9 +21,9 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 0 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: 3,
+  workers: 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: "html",
+  reporter: [['list'], ['html', { outputFolder: 'reports/html-report' }]],
   // timeout: 60000, 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -32,7 +32,7 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     // trace: "on",
   
-    
+    baseURL: "https://stg.scriptsense.co.nz/",
       headless: true, // Set to true for headless execution
       browserName: "chromium",
     //   contextOptions: {
@@ -41,6 +41,7 @@ export default defineConfig({
       video:'on',
       screenshot:'on',
       trace:'on',
+
       // storageState:'auth.json'
     },
 
@@ -49,27 +50,26 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: "chromium",
-      use: { ...devices["Desktop Chrome"] 
-        // launchOptions: {
-        //   args: [
-        //     "--start-maximized"
-        //   ],
-        // },
+      name: 'chromium',
+      // use: { ...devices['Desktop Chrome'] },
+      use: {
+        browserName: 'chromium',
+        headless: false,
+        // viewport: { width: 1920, height: 1080 },
+        viewport: null, // Let the browser define the viewport (e.g. full screen)
+        launchOptions: {
+          args: ['--start-maximized'], // Start maximized
+        },
       },
-      
     },
-
     // {
     //   name: "firefox",
     //   use: { ...devices["Desktop Firefox"] },
     // },
-
     // {
     //   name: "webkit",
     //   use: { ...devices["Desktop Safari"] },
     // },
-
     /* Test against mobile viewports. */
     // {
     //   name: 'Mobile Chrome',
@@ -79,7 +79,6 @@ export default defineConfig({
     //   name: 'Mobile Safari',
     //   use: { ...devices['iPhone 12'] },
     // },
-
     /* Test against branded browsers. */
     // {
     //   name: 'Microsoft Edge',

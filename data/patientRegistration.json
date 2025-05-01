@@ -1,9 +1,15 @@
 {
-    "patient": {
-      "NHI": "ZAU8023",
-      "firstName": "John",
-      "lastName": "Doe",
-      "gender": "Male",
-      "DOB": "01/01/2001"
-    }
+  "patient": {
+    "NHI": "ZAU8023",
+    "firstName": "John",
+    "lastName": "Doe",
+    "gender": "Male",
+    "DOB": "01/01/2001"
+  },
+  "register": {
+    "institutionName": "GMC Pharmacy",
+    "category": "CRC",
+    "registerDate":"04/03/2025",
+    "exitDate":"15/03/2025"
   }
+}

@@ -1,0 +1,20 @@
+{
+  "patientDetails": {
+    "name": "Johnny Tester",
+    "numberOfBillstoBeAdded": 2,
+    "searchType": "byNHI",
+    "NHI": "ZYB58AF",
+    "DOB": "31/01/2000"
+  },
+  "dispensesDetails": {
+    "dispenseBy":"patient",
+    "numberOfBill":2,
+    "retailItem":["adrenaline"],
+    "itemBarcode":"3HK760174473560301",
+    "paymentAccountName": "test account"
+  },
+  "eftposConnection":{
+    "serialNo":"VTT_scriptsense",
+    "description":"scriptsense"
+  }
+} 

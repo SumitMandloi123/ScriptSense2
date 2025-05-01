@@ -1,0 +1,41 @@
+2025/04/25-10:42:47.978 c3dc2 Reusing MANIFEST /home/unthinkable-lap/ScriptSense2/fixtures/user-data-dir/Default/IndexedDB/https_stg.scriptsense.co.nz_0.indexeddb.leveldb/MANIFEST-000001
+2025/04/25-10:42:47.979 c3dc2 Recovering log #48
+2025/04/25-10:42:48.002 c3dc2 Reusing old log /home/unthinkable-lap/ScriptSense2/fixtures/user-data-dir/Default/IndexedDB/https_stg.scriptsense.co.nz_0.indexeddb.leveldb/000048.log 
+2025/04/25-10:42:48.002 c3dc2 Delete type=2 #47
+2025/04/25-10:42:48.002 c3dc2 Delete type=2 #49
+2025/04/25-10:42:50.040 c3dc4 Level-0 table #53: started
+2025/04/25-10:42:50.078 c3dc4 Level-0 table #53: 1392159 bytes OK
+2025/04/25-10:42:50.079 c3dc4 Delete type=0 #48
+2025/04/25-10:42:50.129 c3dc2 Compacting 1@1 + 1@2 files
+2025/04/25-10:42:50.199 c3dc2 Generated table #54@1: 10863 keys, 1839551 bytes
+2025/04/25-10:42:50.199 c3dc2 Compacted 1@1 + 1@2 files => 1839551 bytes
+2025/04/25-10:42:50.199 c3dc2 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/04/25-10:42:51.149 c3dc4 Level-0 table #56: started
+2025/04/25-10:42:51.175 c3dc4 Level-0 table #56: 1378905 bytes OK
+2025/04/25-10:42:51.176 c3dc4 Delete type=0 #52
+2025/04/25-10:42:51.176 c3dc4 Delete type=2 #50
+2025/04/25-10:42:51.176 c3dc4 Delete type=2 #53
+2025/04/25-10:42:51.203 c3dc4 Compacting 1@1 + 1@2 files
+2025/04/25-10:42:51.253 c3dc4 Generated table #57@1: 10866 keys, 1840269 bytes
+2025/04/25-10:42:51.253 c3dc4 Compacted 1@1 + 1@2 files => 1840269 bytes
+2025/04/25-10:42:51.254 c3dc4 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/04/25-10:42:51.914 c3dc4 Level-0 table #59: started
+2025/04/25-10:42:51.943 c3dc4 Level-0 table #59: 1423198 bytes OK
+2025/04/25-10:42:51.943 c3dc4 Delete type=2 #54
+2025/04/25-10:42:51.943 c3dc4 Delete type=0 #55
+2025/04/25-10:42:51.943 c3dc4 Delete type=2 #56
+2025/04/25-10:42:51.964 c3dc4 Compacting 1@1 + 1@2 files
+2025/04/25-10:42:52.014 c3dc4 Generated table #60@1: 10871 keys, 1840782 bytes
+2025/04/25-10:42:52.014 c3dc4 Compacted 1@1 + 1@2 files => 1840782 bytes
+2025/04/25-10:42:52.015 c3dc4 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/04/25-10:42:52.443 c3dce Level-0 table #62: started
+2025/04/25-10:42:52.469 c3dce Level-0 table #62: 1407175 bytes OK
+2025/04/25-10:42:52.470 c3dce Delete type=2 #59
+2025/04/25-10:42:52.470 c3dce Delete type=0 #58
+2025/04/25-10:42:52.470 c3dce Delete type=2 #57
+2025/04/25-10:42:52.483 c3dc4 Compacting 1@1 + 1@2 files
+2025/04/25-10:42:52.529 c3dc4 Generated table #63@1: 10894 keys, 1841941 bytes
+2025/04/25-10:42:52.529 c3dc4 Compacted 1@1 + 1@2 files => 1841941 bytes
+2025/04/25-10:42:52.530 c3dc4 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/04/25-10:42:52.530 c3dc4 Delete type=2 #62
+2025/04/25-10:42:52.530 c3dc4 Delete type=2 #60
