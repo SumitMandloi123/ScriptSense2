@@ -34,7 +34,7 @@ const testPages = baseTest.extend<pages>({
     // eslint-disable-next-line no-empty-pattern
     async ({}, use) => {
       console.log('Launching shared browser...');
-      const browser = await chromium.launch({ headless: false }); // Use true for CI
+      const browser = await chromium.launch({ headless: true }); // Use true for CI
       await use(browser);
       console.log('Closing shared browser...');
       await browser.close();
